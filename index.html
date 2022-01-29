@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>AHA! 5 Food</title>
 
@@ -11,11 +13,11 @@
       <img src= "https://tse2.mm.bing.net/th?id=OIP.xx6o-5gQTy1nZvKbju0ifAHaHa&pid=Api&P=0&w=177&h=177" alt="AHA logo">
 
         <form id="Rest-Form">
-            <input type="text" class="form-control" id="Restnames" placeholder="Search for closeby restaurants" />
+            <input type="text" class="form-control" id="Restnames" placeholder="Close by restaurants..." />
             <button type="submit" value="search" id = "SearchBtn">
                 Search
               </button>
-              <button> Clear </button>
+              <button id="clearBtn"> Clear </button>
         <!-- // Drop down auto options.... -->
 
 <script>
@@ -55,10 +57,10 @@
   <body>
     <main class="container">
         <section class="dishes">
-            <div class="indian">Indian</div>
-            <div class="chinese">Chinese</div>
-            <div class="italian">Italian</div>
-            <div class="desserts">Desserts</div>
+            <div class="foodTypes" id="indian">Indian</div>
+            <div class="foodTypes" id="chinese">Chinese</div>
+            <div class="foodTypes" id="italian">Italian</div>
+            <div class="foodTypes" id="desserts">Desserts</div>
         </section>
 
         <section class="data">
