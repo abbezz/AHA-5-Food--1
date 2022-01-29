@@ -1,0 +1,68 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.dishes{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.indian{
+    font-size: 30px;
+    padding: 2vh 2vw;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.indian:hover{
+    color: orange;
+}
+
+.chinese{
+    font-size: 30px;
+    padding: 2vh 2vw;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.chinese:hover{
+    color: orange;
+}
+
+.italian{
+    font-size: 30px;
+    padding: 2vh 2vw;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.italian:hover{
+    color: orange;
+}
+
+.desserts{
+    font-size: 30px;
+    padding: 2vh 2vw;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.desserts:hover{
+    color: orange;
+}
+
+.data{
+    font-size: 30px;
+    border: 2px solid black;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10vh;
+    padding: 20vh 2vw;
+}
+
+
