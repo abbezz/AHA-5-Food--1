@@ -1,17 +1,27 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
 header {
-  background-color: pink;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: red;
+  margin-bottom: 5vh;
 }
 
-#Rest-Form {
-  margin-top: 3rem;
+input{
+    margin-top: 3rem;
+    font-size: 30px;
 }
 
-#Restnames {
-  font-size: 40px;
+form{
+    margin-left: 6rem;
+}
+
+button{
+    font-size: 30px;
+    cursor: pointer;
 }
 
 nav {
@@ -20,69 +30,49 @@ nav {
   padding: 1px;
 }
 
-.container{
+.links{
+    list-style: none;
     display: flex;
-    flex-direction: column;
+    font-size: 25px;
 }
 
-.dishes{
-    display: flex;
-    justify-content: space-evenly;
+li a{
+    text-decoration: none;
+    color: black;
+    margin-left: 2vw;
 }
 
-.indian{
-    font-size: 30px;
-    padding: 2vh 2vw;
-    border-radius: 5px;
-    border: 2px solid black;
-    cursor: pointer;
-}
-
-.indian:hover{
+li a:hover{
     color: orange;
 }
 
-.chinese{
-    font-size: 30px;
-    padding: 2vh 2vw;
-    border-radius: 5px;
-    border: 2px solid black;
-    cursor: pointer;
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
-.chinese:hover{
-    color: orange;
+.dishes {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.italian{
-    font-size: 30px;
-    padding: 2vh 2vw;
-    border-radius: 5px;
-    border: 2px solid black;
-    cursor: pointer;
+.foodTypes {
+  font-size: 30px;
+  padding: 2vh 2vw;
+  border-radius: 25%;
+  border: 2px solid black;
+  cursor: pointer;
 }
 
-.italian:hover{
-    color: orange;
+.foodTypes:hover {
+  color: orange;
 }
 
-.desserts{
-    font-size: 30px;
-    padding: 2vh 2vw;
-    border-radius: 5px;
-    border: 2px solid black;
-    cursor: pointer;
-}
-
-.desserts:hover{
-    color: orange;
-}
-
-.data{
-    font-size: 30px;
-    border: 2px solid black;
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 10vh;
-    padding: 20vh 2vw;
+.data {
+  font-size: 30px;
+  border: 2px solid black;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10vh;
+  padding: 20vh 2vw;
 }
