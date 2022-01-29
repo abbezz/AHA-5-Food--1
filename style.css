@@ -1,3 +1,25 @@
+header {
+  background-color: pink;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: red;
+}
+
+#Rest-Form {
+  margin-top: 3rem;
+}
+
+#Restnames {
+  font-size: 40px;
+}
+
+nav {
+  margin-right: 3rem;
+  margin-top: 2rem;
+  padding: 1px;
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -64,5 +86,3 @@
     margin-top: 10vh;
     padding: 20vh 2vw;
 }
-
-
