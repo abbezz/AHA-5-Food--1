@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
     <title>AHA! 5 Food</title>
 
@@ -14,6 +16,7 @@
 
         <form id="Rest-Form">
             <input type="text" id="recNames" placeholder="Close by restaurants..." />
+            <input type="text" id="postcodeSearch" placeholder="Enter your postcode..." />
             <button type="submit" value="search" id = "searchBtn">
                 Search
               </button>
@@ -57,15 +60,17 @@
   <body>
     <main class="container">
         <section class="dishes">
-            <div class="foodTypes" id="indian">Indian</div>
-            <div class="foodTypes" id="chinese">Chinese</div>
-            <div class="foodTypes" id="italian">Italian</div>
-            <div class="foodTypes" id="desserts">Desserts</div>
+
+            <button class="foodTypes" id="pizza">Pizza</button>
+            <button class="foodTypes" id="burgers">Burgers</button>
+            <button class="foodTypes" id="kebab">Kebab</button>
+            <button class="foodTypes" id="desserts">Desserts</button>
         </section>
 
-        <section class="data">
-            <div></div>
+        <section class="data" id= "fetchInfo">
+            
         </section>
+        <div id ="location" ></div>
     </main>
 
     <br>

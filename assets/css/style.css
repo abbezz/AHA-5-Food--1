@@ -10,18 +10,23 @@ header {
   margin-bottom: 5vh;
 }
 
-input{
-    margin-top: 3rem;
-    font-size: 30px;
+input {
+  margin-top: 3rem;
+  font-size: 30px;
 }
 
-form{
-    margin-left: 6rem;
+form {
+  margin-left: 6rem;
 }
 
-button{
-    font-size: 30px;
-    cursor: pointer;
+#searchBtn {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#clearBtn {
+  font-size: 30px;
+  cursor: pointer;
 }
 
 nav {
@@ -30,20 +35,20 @@ nav {
   padding: 1px;
 }
 
-.links{
-    list-style: none;
-    display: flex;
-    font-size: 25px;
+.links {
+  list-style: none;
+  display: flex;
+  font-size: 25px;
 }
 
-li a{
-    text-decoration: none;
-    color: black;
-    margin-left: 2vw;
+li a {
+  text-decoration: none;
+  color: black;
+  margin-left: 2vw;
 }
 
-li a:hover{
-    color: orange;
+li a:hover {
+  color: orange;
 }
 
 .container {
@@ -74,10 +79,10 @@ li a:hover{
   width: 50%;
   margin: 0 auto;
   margin-top: 10vh;
-  padding: 20vh 2vw;
+  /* padding: 20vh 2vw; */
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -106,8 +111,7 @@ li a:hover{
 }
 
 .footer-heading h2 {
-  margin-bottom:  2rem;
-
+  margin-bottom: 2rem;
 }
 
 .footer-heading a {
@@ -122,7 +126,7 @@ li a:hover{
 }
 
 .footer-email-form h2 {
-margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 #footer-email {
@@ -134,7 +138,6 @@ margin-bottom: 2rem;
   padding-left: 0.5rem;
   font-size: 1rem;
   margin-bottom: 1rem;
-  
 }
 
 #footer-email::placeholder {
@@ -150,4 +153,19 @@ margin-bottom: 2rem;
   border: none;
   color: silver;
   font-size: 1rem;
+}
+
+#fetchInfo {
+  background-color: pink;
+  font-size: 15px;
+}
+
+.list-group-item {
+  list-style: none;
+  padding: 10px;
+}
+
+.box {
+  background-color: red;
+  width: 50rem;
 }
