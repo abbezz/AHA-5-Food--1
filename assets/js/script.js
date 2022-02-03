@@ -36,39 +36,47 @@ console.log("button clicked");
 async function fetchFood(event) {
   event.preventDefault();
 
-  console.log("FOOD");
-  const response = await fetch(
-    `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&count=10`,
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async function(data1) {
+      console.log(data1.coords.latitude)
 
-    {
-      headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
-    }
-  );
-  const data = await response.json();
+      console.log("FOOD");
+      const response = await fetch(
+        `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&lat=${data.coords.latitude}&lon=${data.coords.longitude}&count=10`,
 
-  // Give me 10 bits of data
-  for (i = 0; i < 10; i++) {
-    // create it in a list
-    var listEl = $("<li>");
-    var listDetail = name.concat("");
-    listEl.addClass("list-group-item").text(listDetail);
-    listEl.appendTo("#fetchInfo");
+        {
+          headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
+        }
+      );
+      const data = await response.json();
 
-    // Bring Data in the info box
-    $("#fetchInfo").append(
-      data.restaurants[i].restaurant.name + " - Address: "
-    );
+      // Give me 10 bits of data
+      for (i = 0; i < 10; i++) {
+        // create it in a list
+        var listEl = $("<li>");
+        var listDetail = name.concat("");
+        listEl.addClass("list-group-item").text(listDetail);
+        listEl.appendTo("#fetchInfo");
 
-    $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
-    // $("#fetchInfo").append(
-    //   "    Menu URL : " + data.restaurants[i].restaurant.url
-    // );
-    $("#fetchInfo").append(
-      "  Opening times : " + data.restaurants[i].restaurant.timings
-    );
-    console.log(data);
+        // Bring Data in the info box
+        $("#fetchInfo").append(
+          data.restaurants[i].restaurant.name + " - Address: "
+        );
+
+        $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
+        // $("#fetchInfo").append(
+        //   "    Menu URL : " + data.restaurants[i].restaurant.url
+        // );
+        $("#fetchInfo").append(
+          "  Opening times : " + data.restaurants[i].restaurant.timings
+        );
+        console.log(data);
+      }
+    })
   }
 }
+
+
 
 // CLEAR APPENDED STUFF ---
 
