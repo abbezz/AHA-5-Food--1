@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <title>ACHA 5 Food</title>
+
+    <header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.xx6o-5gQTy1nZvKbju0ifAHaHa&pid=Api&P=0&w=177&h=177" width="112" height="28">
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
+        </a>
+  
+        <a class="navbar-item">
+          About Us
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              Jobs
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <form id="Rest-Form">
+  <input class="input is-success" type="text" id="recNames" placeholder="Enter food type">
+  <input class="input is-success" type="text" id="postcodeSearch" placeholder="Enter postcode">
+  <button type="submit" value="search" id = "searchBtn">
+    Search
+  </button>
+  <button id="clearBtn"> Clear </button>
+  </form> 
+
+</head>
+</header>
+
+<body>
+    <body>
+        <main class="container">
+            <section class="dishes">
+    
+                <button class="button is-link is-outlined" id="pizza">Pizza</button>
+                <button class="button is-info is-outlined" id="burgers">Burgers</button>
+                <button class="button is-success is-outlined" id="kebab">Kebabs</button>
+                <button class="button is-danger is-outlined" id="desserts">Desserts</button>
+                
+            </section>
+            <section class="data" id= "fetchInfo">
+            </section>
+
+            <div id ="location" ></div>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
