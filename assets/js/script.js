@@ -31,7 +31,7 @@ $(function () {
   });
 });
 
-searchBtn.addEventListener("click", fetchFood);
+searchBtn.addEventListener("click", fetchFood, postcode);
 console.log("button clicked");
 
 async function fetchFood(event) {
@@ -82,19 +82,25 @@ function postcode(data) {
   // let lat = data.result[0].lat;
   // let lon = data.result[0].lon;
 
-  var URL = `https://api.postcodes.io/postcodes?q=b81ph`;
-  fetch(URL).then(function (response) {
-    if (response.ok) {
-      response.json().then(function (data) {
-        var loc = data.result[0].postcode;
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async function (data1) {
+      console.log(data1.coords.latitude);
 
-        $("#location").append(data.result[0].postcode);
-        console.log(data);
-        console.log(URL);
-        // console.log(loc);
+      var URL = `https://api.postcodes.io/postcodes?${postcodeSearch.value}&lon=${data1.coords.longitude}&lat=${data1.coords.latitude}`;
+      fetch(URL).then(function (response) {
+        if (response.ok) {
+          response.json().then(function (data) {
+            var loc = data.result[0].postcode;
+
+            $("#location").append(data.result[0].postcode);
+            console.log(data);
+            console.log(URL);
+            console.log(loc);
+          });
+        }
       });
-    }
-  });
+    });
+  }
 }
 // ${postcodeSearch.value}
 postcode();
