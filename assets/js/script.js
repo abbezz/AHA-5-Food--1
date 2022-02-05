@@ -37,50 +37,58 @@ console.log("button clicked");
 async function fetchFood(event) {
   event.preventDefault();
 
-  const response = await fetch(
-    `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&count=10`,
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      console.log(position.coords.latitude);
 
-    {
-      headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
-    }
-  );
+      const response = await fetch(
+        `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10`,
 
-  const data = await response.json();
+        {
+          headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
+        }
+      );
 
-  // Give me 10 bits of data
-  for (i = 0; i < 10; i++) {
-    // create it in a list
-    var listEl = $("<li>");
-    var listDetail = name.concat("");
-    listEl.addClass("list-group-item").text(listDetail);
-    listEl.appendTo("#fetchInfo");
+      const data = await response.json();
 
-    // Bring Data in the info box
-    $("#fetchInfo").append(
-      data.restaurants[i].restaurant.name + " - Address: "
-    );
+      // Give me 10 bits of data
+      for (i = 0; i < 10; i++) {
+        // create it in a list
+        var listEl = $("<li>");
+        var listDetail = name.concat("");
+        listEl.addClass("list-group-item").text(listDetail);
+        listEl.appendTo("#fetchInfo");
 
-    $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
-    // $("#fetchInfo").append(
-    //   "    Menu URL : " + data.restaurants[i].restaurant.url
-    // );
+        // Bring Data in the info box
+        $("#fetchInfo").append(
+          data.restaurants[i].restaurant.name + " - Address: "
+        );
 
-    $("#fetchInfo").append(
-      "  Opening times : " + data.restaurants[i].restaurant.timings
-    );
-    console.log(data);
+        $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
+        // $("#fetchInfo").append(
+        //   "    Menu URL : " + data.restaurants[i].restaurant.url
+        // );
+
+        $("#fetchInfo").append(
+          "  Opening times : " + data.restaurants[i].restaurant.timings
+        );
+        console.log(data);
+      }
+    });
   }
 }
 
-function postcode() {
-  var URL = `https://api.postcodes.io/postcodes?q=b81ph`;
+function postcode(data) {
+  // let lat = data.result[0].lat;
+  // let lon = data.result[0].lon;
 
+  var URL = `https://api.postcodes.io/postcodes?q=b81ph`;
   fetch(URL).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
         var loc = data.result[0].postcode;
 
-        $("#location").append(data.result.postcode);
+        $("#location").append(data.result[0].postcode);
         console.log(data);
         console.log(URL);
         // console.log(loc);
