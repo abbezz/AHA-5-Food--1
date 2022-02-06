@@ -40,6 +40,7 @@ async function fetchFood(event) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(async function (position) {
       console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
 
       const response = await fetch(
         `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10`,
@@ -72,11 +73,59 @@ async function fetchFood(event) {
         $("#fetchInfo").append(
           "  Opening times : " + data.restaurants[i].restaurant.timings
         );
+
+        $("#fetchInfo").append();
+
         console.log(data);
+
+        // ---------------------------------------------------------------------------------------------------
+        // PYTHAGGGGG
+
+        let sumlat =
+          // get current locations latitude....
+          position.coords.latitude -
+          // minus each restaurants latitude....
+          data.restaurants[i].restaurant.location.latitude;
+
+        let sumlon =
+          // get current locations longitude....
+          position.coords.longitude -
+          // minus each restaurants lon....
+          data.restaurants[i].restaurant.location.longitude;
+
+        // use pythag thearom.....so 'a*a + b*b = c squared..'
+
+        let C = Math.sqrt(sumlat * sumlat + sumlon * sumlon);
+
+        //   C.sort(function (a, b) {
+        //     return a - b;
+        //   });
+        // }
+
+        // trying to sort the pythag in order...lowest number first..
+        // function something(more) {
+        //   C.sort(function (a, b) {
+        //     return a - b;
+        //   });
+        //   document.getElementById("#fetchInfo").innerHTML = C;
+        // }
+
+        console.log(data.restaurants[i].restaurant.location.address);
+        console.log(sumlat);
+        console.log(sumlon);
+        console.log(C);
       }
     });
   }
 }
+
+function pythagorean_theorem(x, y) {
+  if (typeof x !== "number" || typeof y !== "number") return false;
+  return Math.sqrt(x * x + y * y);
+}
+
+console.log(pythagorean_theorem(2, 4));
+console.log(pythagorean_theorem(3, 4));
 
 function postcode(data) {
   // let lat = data.result[0].lat;
@@ -85,6 +134,10 @@ function postcode(data) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(async function (data1) {
       console.log(data1.coords.latitude);
+      console.log(data1.coords.longitude);
+
+      let latitude = data1.coords.latitude;
+      let longitude = data1.coords.longitude;
 
       var URL = `https://api.postcodes.io/postcodes?${postcodeSearch.value}&lon=${data1.coords.longitude}&lat=${data1.coords.latitude}`;
       fetch(URL).then(function (response) {
@@ -104,6 +157,10 @@ function postcode(data) {
 }
 // ${postcodeSearch.value}
 postcode();
+
+let a = 10;
+let b = 12;
+let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
 
 // function geo() {
 //   if (navigator.geolocation) {
