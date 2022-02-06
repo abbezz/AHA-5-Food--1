@@ -51,7 +51,7 @@ async function fetchFood(event) {
       );
 
       const data = await response.json();
-
+      $("#fetchInfo").html("");
       // Give me 10 bits of data
       for (i = 0; i < 10; i++) {
         // create it in a list
@@ -103,6 +103,7 @@ async function fetchFood(event) {
         // }
 
         // trying to sort the pythag in order...lowest number first..
+
         // function something(more) {
         //   C.sort(function (a, b) {
         //     return a - b;
@@ -150,10 +151,6 @@ function postcode(data) {
 // ${postcodeSearch.value}
 postcode();
 
-let a = 10;
-let b = 12;
-let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
-
 // function geo() {
 //   if (navigator.geolocation) {
 //     navigator.geolocation.getCurrentPosition(function (position) {
@@ -192,7 +189,7 @@ async function fetchPizzas(event) {
     }
   );
   const data = await response.json();
-
+  $("#fetchInfo").html("");
   // Give me 10 bits of data
   for (i = 0; i < 10; i++) {
     // create it in a list
@@ -228,7 +225,7 @@ async function fetchBurgers(event) {
     }
   );
   const data = await response.json();
-
+  $("#fetchInfo").html("");
   // Give me 10 bits of data
   for (i = 0; i < 10; i++) {
     // create it in a list
@@ -261,7 +258,7 @@ async function fetchKebab(event) {
     }
   );
   const data = await response.json();
-
+  $("#fetchInfo").html("");
   // Give me 10 bits of data
   for (i = 0; i < 10; i++) {
     // create it in a list
@@ -295,7 +292,7 @@ async function fetchDesserts(event) {
     }
   );
   const data = await response.json();
-
+  $("#fetchInfo").html("");
   // Give me 10 bits of data
   for (i = 0; i < 10; i++) {
     // create it in a list
