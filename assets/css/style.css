@@ -170,3 +170,7 @@ li a:hover {
   background-color: red;
   width: 50rem;
 }
+
+.tabs {
+  justify-content: center;
+}
