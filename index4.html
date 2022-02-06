@@ -59,19 +59,22 @@
         <div class="field">
           <label class="label">Restaurant</label>
           <div class="control">
-            <input type="text" id="recNames" placeholder="Restaurant">
+            <input class="input is-normal is-danger" type="text" id="recNames" placeholder="Restaurant">
+  
           </div>
         </div>
        
         <div class="field">
           <label class="label">Postcode</label>
           <div class="control">
-            <input type="text" id="postcodeSearch" placeholder="e.g. B80 7ET">
+            <input class="input is-normal is-danger" type="text"  id="postcodeSearch" placeholder="e.g. B80 7ET">
+ 
             <br>
-            <button type="submit" value="search" id = "searchBtn">
-              Search
-            </button>
-            <button id="clearBtn"> Clear </button>
+            <div class="buttons are-medium">
+              <button class="button" type="submit" value="search" id="searchBtn">Search</button>
+              <button class="button" type="submit" value="search" id="clearBtn">Clear</button>
+            </div>
+          </div>
           </div>
         </div>
       
@@ -88,7 +91,7 @@
   
    
       <!-- Food selection buttons -->
-     <div class="hero-foot">
+    <div class="hero-foot">
     <nav class="tabs has-addons is-centered">
       <div class="container">
         <ul>
