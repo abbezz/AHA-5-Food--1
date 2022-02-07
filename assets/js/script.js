@@ -7,7 +7,7 @@ let kebabBtn = $("#kebab");
 let dessertsBtn = $("#desserts");
 let postcodeSearch = document.getElementById("postcodeSearch");
 let info = $("fetchInfo");
-
+let boxed = $("#boxed");
 // Job of the clear button
 clearBtn.addEventListener("click", () => {
   $("#fetchInfo").html("");
@@ -27,7 +27,7 @@ async function fetchFood(event) {
       console.log(position.coords.longitude);
 
       const response = await fetch(
-        `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10&sort=real_distance`,
+        `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&reviews=rating&dailymenu&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10&sort=real_distance`,
 
         {
           headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
@@ -45,20 +45,22 @@ async function fetchFood(event) {
         listEl.appendTo("#fetchInfo");
 
         // Bring Data in the info box
+
+        // Rest Name
         $("#fetchInfo").append(
           data.restaurants[i].restaurant.name + " - Address: "
         );
-
+        // Rest address
         $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
-        // $("#fetchInfo").append(
-        //   "    Menu URL : " + data.restaurants[i].restaurant.url
-        // );
-
+        // Rest opening times
         $("#fetchInfo").append(
           "  Opening times : " + data.restaurants[i].restaurant.timings
         );
-
-        $("#fetchInfo").append();
+        // Rest rating
+        $("#fetchInfo").append(
+          " - Customer Rating : " +
+            data.restaurants[i].restaurant.user_rating.rating_text
+        );
 
         console.log(data);
         console.log("button clicked");
