@@ -172,8 +172,9 @@ li a:hover {
 
 #location {
   background-color: pink;
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: fit-content;
+  margin-top: 1rem;
 }
 
 #contactusfooter {

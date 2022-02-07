@@ -1,38 +1,22 @@
-var searchBtn = document.querySelector("#searchBtn");
+let searchBtn = document.querySelector("#searchBtn");
+let clearBtn = document.querySelector("#clearBtn");
 let recNames = document.querySelector("#recNames");
 let burgerBtn = $("#burgers");
 let pizzaBtn = $("#pizza");
 let kebabBtn = $("#kebab");
 let dessertsBtn = $("#desserts");
-let postcodeSearch = document.querySelector("#postcodeSearch");
+let postcodeSearch = document.getElementById("postcodeSearch");
+let info = $("fetchInfo");
 
-$(function () {
-  var Restaurant = [
-    "Dixy Chicken",
-    "Aberdeen",
-    "Liverpool",
-    "Glasgow",
-    "Birmingham",
-    "Manchester",
-    "Essex",
-    "Tokyo",
-    "London",
-    "New York, USA",
-    "Paris",
-    "Islamabad",
-    "New Delhi",
-    "Chicago",
-    "Rome",
-    "San Francisco",
-    "Denver",
-  ];
-  $("#restNames").autocomplete({
-    source: Restaurant,
-  });
+// Job of the clear button
+clearBtn.addEventListener("click", () => {
+  $("#fetchInfo").html("");
+
+  console.log("clear clicked");
 });
 
+// Job and functions linked to search button
 searchBtn.addEventListener("click", fetchFood, postcode);
-console.log("button clicked");
 
 async function fetchFood(event) {
   event.preventDefault();
@@ -43,7 +27,7 @@ async function fetchFood(event) {
       console.log(position.coords.longitude);
 
       const response = await fetch(
-        `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10`,
+        `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10&sort=real_distance`,
 
         {
           headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
@@ -55,8 +39,8 @@ async function fetchFood(event) {
       // Give me 10 bits of data
       for (i = 0; i < 10; i++) {
         // create it in a list
-        var listEl = $("<li>");
-        var listDetail = name.concat("");
+        let listEl = $("<li>");
+        let listDetail = name.concat("");
         listEl.addClass("list-group-item").text(listDetail);
         listEl.appendTo("#fetchInfo");
 
@@ -77,52 +61,39 @@ async function fetchFood(event) {
         $("#fetchInfo").append();
 
         console.log(data);
+        console.log("button clicked");
 
         // ---------------------------------------------------------------------------------------------------
         // PYTHAGGGGG
 
-        let sumlat =
-          // get current locations latitude....
-          position.coords.latitude -
-          // minus each restaurants latitude....
-          data.restaurants[i].restaurant.location.latitude;
+        // let sumlat =
+        //   // get current locations latitude....
+        //   position.coords.latitude -
+        //   // minus each restaurants latitude....
+        //   data.restaurants[i].restaurant.location.latitude;
 
-        let sumlon =
-          // get current locations longitude....
-          position.coords.longitude -
-          // minus each restaurants lon....
-          data.restaurants[i].restaurant.location.longitude;
+        // let sumlon =
+        //   // get current locations longitude....
+        //   position.coords.longitude -
+        //   // minus each restaurants lon....
+        //   data.restaurants[i].restaurant.location.longitude;
 
-        // use pythag thearom.....so 'a*a + b*b = c squared..'
+        // // use pythag thearom.....so 'a*a + b*b = c squared..'
 
-        let C = Math.sqrt(sumlat * sumlat + sumlon * sumlon);
+        // let C = Math.sqrt(sumlat * sumlat + sumlon * sumlon);
 
-        //   C.sort(function (a, b) {
-        //     return a - b;
-        //   });
-        // }
-
-        // trying to sort the pythag in order...lowest number first..
-
-        // function something(more) {
-        //   C.sort(function (a, b) {
-        //     return a - b;
-        //   });
-        //   document.getElementById("#fetchInfo").innerHTML = C;
-        // }
-
-        console.log(data.restaurants[i].restaurant.location.address);
-        console.log(sumlat);
-        console.log(sumlon);
-        console.log(C);
+        // console.log(data.restaurants[i].restaurant.location.address);
+        // console.log(sumlat);
+        // console.log(sumlon);
+        // console.log(C);
       }
     });
   }
 }
 
-function postcode(data) {
-  // let lat = data.result[0].lat;
-  // let lon = data.result[0].lon;
+function postcode(data1) {
+  // let lat = data1.result[0].lat;
+  // let lon = data1.result[0].lon;
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(async function (data1) {
@@ -138,18 +109,202 @@ function postcode(data) {
           response.json().then(function (data) {
             var loc = data.result[0].postcode;
 
-            $("#location").append(data.result[0].postcode);
+            $("#location").append("  " + data.result[0].postcode);
             console.log(data);
             console.log(URL);
             console.log(loc);
+            console.log(postcodeSearch.value);
           });
         }
       });
     });
   }
 }
-// ${postcodeSearch.value}
+
 postcode();
+
+// ------------------------------------------------------------------------------------------------------------
+
+// GIVE ME PIZZAS ONLY WHEN I CLICK THE PIZZA BUTTON....................
+
+pizzaBtn.on("click", fetchPizzas);
+
+async function fetchPizzas(event) {
+  event.preventDefault();
+
+  // Grab geolocation and sort by distance....
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+
+      console.log("some pizzas");
+
+      const response = await fetch(
+        `https://developers.zomato.com/api/v2.1/search?q=pizza&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10&sort=real_distance`,
+
+        {
+          headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
+        }
+      );
+
+      const data = await response.json();
+
+      // clear out HTML every time user clicks search..
+
+      $("#fetchInfo").html("");
+
+      // Give me 10 bits of data
+      for (i = 0; i < 10; i++) {
+        // create it in a list
+        var listEl = $("<li>");
+        var listDetail = name.concat("");
+        listEl.addClass("list-group-item").text(listDetail);
+        listEl.appendTo("#fetchInfo");
+
+        // Bring Data in the info box
+        $("#fetchInfo").append(
+          data.restaurants[i].restaurant.name + " - Address: "
+        );
+
+        $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
+
+        console.log(data);
+      }
+    });
+  }
+}
+
+// GIVE ME BURGERS ONLY WHEN I CLICK THE BURGER BUTTON....................
+
+burgerBtn.on("click", fetchBurgers);
+
+async function fetchBurgers(event) {
+  event.preventDefault();
+
+  // Grab geolocation, sort by burger and sort by distance....
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+
+      console.log("some Burgers");
+
+      const response = await fetch(
+        `https://developers.zomato.com/api/v2.1/search?q=burger&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10&sort=real_distance`,
+
+        {
+          headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
+        }
+      );
+      const data = await response.json();
+      $("#fetchInfo").html("");
+      // Give me 10 bits of data
+      for (i = 0; i < 10; i++) {
+        // create it in a list
+        var listEl = $("<li>");
+        var listDetail = name.concat("");
+        listEl.addClass("list-group-item").text(listDetail);
+        listEl.appendTo("#fetchInfo");
+
+        // Bring Data in the info box
+        $("#fetchInfo").append(
+          data.restaurants[i].restaurant.name + " - Address: "
+        );
+
+        $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
+      }
+    });
+  }
+}
+
+// GIVE ME KEBABS ONLY WHEN I CLICK THE KEBAB BUTTON....................
+
+kebabBtn.on("click", fetchKebab);
+
+async function fetchKebab(event) {
+  event.preventDefault();
+
+  // Grab geolocation, sort by kebab and sort by distance....
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+
+      const response = await fetch(
+        `https://developers.zomato.com/api/v2.1/search?q=kebab&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10&sort=real_distance`,
+
+        {
+          headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
+        }
+      );
+      const data = await response.json();
+      $("#fetchInfo").html("");
+      // Give me 10 bits of data
+      for (i = 0; i < 10; i++) {
+        // create it in a list
+        var listEl = $("<li>");
+        var listDetail = name.concat("");
+        listEl.addClass("list-group-item").text(listDetail);
+        listEl.appendTo("#fetchInfo");
+
+        // Bring Data in the info box
+        $("#fetchInfo").append(
+          data.restaurants[i].restaurant.name + " - Address: "
+        );
+
+        $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
+        console.log("kebabs");
+      }
+    });
+  }
+}
+
+// GIVE ME DESSERTS ONLY WHEN I CLICK THE DESSERTS BUTTON....................
+
+dessertsBtn.on("click", fetchDesserts);
+
+async function fetchDesserts(event) {
+  event.preventDefault();
+
+  // Grab geolocation, sort by dessert and sort by distance....
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+
+      const response = await fetch(
+        `https://developers.zomato.com/api/v2.1/search?q=desserts&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10&sort=real_distance`,
+
+        {
+          headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
+        }
+      );
+      const data = await response.json();
+      $("#fetchInfo").html("");
+      // Give me 10 bits of data
+      for (i = 0; i < 10; i++) {
+        // create it in a list
+        var listEl = $("<li>");
+        var listDetail = name.concat("");
+        listEl.addClass("list-group-item").text(listDetail);
+        listEl.appendTo("#fetchInfo");
+
+        // Bring Data in the info box
+        $("#fetchInfo").append(
+          data.restaurants[i].restaurant.name + " - Address: "
+        );
+
+        $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
+        console.log("some desserts");
+      }
+    });
+  }
+}
 
 // function geo() {
 //   if (navigator.geolocation) {
@@ -167,146 +322,3 @@ postcode();
 //     });
 //   }
 // }
-
-//developers.zomato.com/api/v2.1/search?q=${recNames.value}&lat=${data1.coords.latitude}&lon=${data1.coords.longitude}&count=10
-// CLEAR APPENDED STUFF ---
-
-// ------------------------------------------------------------------------------------------------------------
-// GIVE ME PIZZAS ONLY WHEN I CLICK THE PIZZA BUTTON....................
-// https:
-
-pizzaBtn.on("click", fetchPizzas);
-
-async function fetchPizzas(event) {
-  event.preventDefault();
-
-  console.log("some pizzas");
-  const response = await fetch(
-    `https://developers.zomato.com/api/v2.1/search?q=pizza&count=20`,
-
-    {
-      headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
-    }
-  );
-  const data = await response.json();
-  $("#fetchInfo").html("");
-  // Give me 10 bits of data
-  for (i = 0; i < 10; i++) {
-    // create it in a list
-    var listEl = $("<li>");
-    var listDetail = name.concat("");
-    listEl.addClass("list-group-item").text(listDetail);
-    listEl.appendTo("#fetchInfo");
-
-    // Bring Data in the info box
-    $("#fetchInfo").append(
-      data.restaurants[i].restaurant.name + " - Address: "
-    );
-
-    $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
-
-    console.log(data);
-  }
-}
-
-// GIVE ME BURGERS ONLY WHEN I CLICK THE BURGER BUTTON....................
-
-burgerBtn.on("click", fetchBurgers);
-
-async function fetchBurgers(event) {
-  event.preventDefault();
-
-  console.log("some Burgers");
-  const response = await fetch(
-    `https://developers.zomato.com/api/v2.1/search?q=burger&count=20`,
-
-    {
-      headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
-    }
-  );
-  const data = await response.json();
-  $("#fetchInfo").html("");
-  // Give me 10 bits of data
-  for (i = 0; i < 10; i++) {
-    // create it in a list
-    var listEl = $("<li>");
-    var listDetail = name.concat("");
-    listEl.addClass("list-group-item").text(listDetail);
-    listEl.appendTo("#fetchInfo");
-
-    // Bring Data in the info box
-    $("#fetchInfo").append(
-      data.restaurants[i].restaurant.name + " - Address: "
-    );
-
-    $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
-  }
-}
-
-// GIVE ME KEBABS ONLY WHEN I CLICK THE KEBAB BUTTON....................
-
-kebabBtn.on("click", fetchKebab);
-
-async function fetchKebab(event) {
-  event.preventDefault();
-
-  const response = await fetch(
-    `https://developers.zomato.com/api/v2.1/search?q=kebab&count=20`,
-
-    {
-      headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
-    }
-  );
-  const data = await response.json();
-  $("#fetchInfo").html("");
-  // Give me 10 bits of data
-  for (i = 0; i < 10; i++) {
-    // create it in a list
-    var listEl = $("<li>");
-    var listDetail = name.concat("");
-    listEl.addClass("list-group-item").text(listDetail);
-    listEl.appendTo("#fetchInfo");
-
-    // Bring Data in the info box
-    $("#fetchInfo").append(
-      data.restaurants[i].restaurant.name + " - Address: "
-    );
-
-    $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
-    console.log("kebabs");
-  }
-}
-
-// GIVE ME DESSERTS ONLY WHEN I CLICK THE DESSERTS BUTTON....................
-
-dessertsBtn.on("click", fetchDesserts);
-
-async function fetchDesserts(event) {
-  event.preventDefault();
-
-  const response = await fetch(
-    `https://developers.zomato.com/api/v2.1/search?q=dessert+waffles&count=20`,
-
-    {
-      headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
-    }
-  );
-  const data = await response.json();
-  $("#fetchInfo").html("");
-  // Give me 10 bits of data
-  for (i = 0; i < 10; i++) {
-    // create it in a list
-    var listEl = $("<li>");
-    var listDetail = name.concat("");
-    listEl.addClass("list-group-item").text(listDetail);
-    listEl.appendTo("#fetchInfo");
-
-    // Bring Data in the info box
-    $("#fetchInfo").append(
-      data.restaurants[i].restaurant.name + " - Address: "
-    );
-
-    $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
-    console.log("some desserts");
-  }
-}
