@@ -94,7 +94,7 @@ li a:hover {
 }
 
 .footer {
-  width: 60%;
+  width: 80%;
   height: 25vh;
   background-color: #212329;
   color: white;
@@ -130,7 +130,7 @@ li a:hover {
 }
 
 #footer-email {
-  width: 250px;
+  width: 350px;
   height: 40px;
   border-radius: 4px;
   outline: none;
@@ -168,4 +168,23 @@ li a:hover {
 .box {
   background-color: red;
   width: 50rem;
+}
+
+#location {
+  background-color: pink;
+  width: 15rem;
+  height: fit-content;
+  margin-top: 1rem;
+}
+
+#contactusfooter {
+  width: 15rem;
+}
+
+#aboutusfooter {
+  width: 8rem;
+}
+
+#socialfooter {
+  width: 10rem;
 }
