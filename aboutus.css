@@ -1,0 +1,141 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: url('/images/white.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: -10vh;
+}
+
+.box1{
+    border: 2px solid white;
+    padding: 5vh 5vw;
+}
+
+h1{
+    text-align: center;
+    color: black;
+    font-size: 80px;
+    text-shadow: 2px 5px gray;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: red;
+}
+
+.container h2{
+    text-align: center;
+    margin-top: -4vh;
+    text-shadow: 2px 2px gray;
+}
+
+.box1 img{
+    height: 50%;
+    width: 200px
+}
+
+img:hover{
+    transform: scale(1.4);
+    cursor: pointer;
+}
+
+.box2{
+    border: 2px solid white;
+    padding: 5vh 5vw;
+}
+
+.box2 img{
+    height: 50%;
+    width: 190px
+}
+
+.box3{
+    border: 2px solid white;
+    padding: 5vh 5vw;
+}
+
+.box3 img{
+    height: 50%;
+    width: 182px
+}
+
+.box4{
+    border: 2px solid white;
+    padding: 5vh 5vw;
+}
+
+.box4 img{
+    height: 50%;
+    width: 192px
+}
+
+main h2{
+    text-align: center;
+    font-size: 50px;
+    text-shadow: 2px 2px gray;
+}
+
+h3{
+    font-size: 40px;
+    text-shadow: 2px 2px gray;
+}
+
+.container2 img{    
+    height: 50%;
+    width: 200px
+}
+
+.ayaanle{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 7vh;
+}
+
+.corey{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 7vh;
+}
+
+.humma{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 7vh;
+}
+
+.abdollah{
+    display: flex;
+    justify-content: space-around;
+}
+
+.about-ayaanle{
+    text-align: center;
+}
+
+.about-corey{
+    text-align: center;
+}
+
+.about-humma{
+    text-align: center;
+}
+
+.about-abdollah{
+    text-align: center;
+}
+
+li{
+    font-size: 25px;
+    line-height: 6vh;
+    list-style: none;
+}
