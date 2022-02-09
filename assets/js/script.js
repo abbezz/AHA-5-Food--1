@@ -5,13 +5,15 @@ let burgerBtn = $("#burgers");
 let pizzaBtn = $("#pizza");
 let kebabBtn = $("#kebab");
 let dessertsBtn = $("#desserts");
+let somethingdiffBtn = $("#somethingdiff");
 let postcodeSearch = document.getElementById("postcodeSearch");
 let info = $("fetchInfo");
 let boxed = $("#boxed");
+
 // Job of the clear button
 clearBtn.addEventListener("click", () => {
+  // Clears fetch info box
   $("#fetchInfo").html("");
-
   console.log("clear clicked");
 });
 
@@ -21,11 +23,13 @@ searchBtn.addEventListener("click", fetchFood, postcode);
 async function fetchFood(event) {
   event.preventDefault();
 
+  // Grabs current location..
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(async function (position) {
       console.log(position.coords.latitude);
       console.log(position.coords.longitude);
 
+      // A few parameters used here...Value of what user puts in, Reviews, Lat/Lon, Count, Sort by distance..
       const response = await fetch(
         `https://developers.zomato.com/api/v2.1/search?q=${recNames.value}&reviews=rating&dailymenu&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10&sort=real_distance`,
 
@@ -44,7 +48,7 @@ async function fetchFood(event) {
         listEl.addClass("list-group-item").text(listDetail);
         listEl.appendTo("#fetchInfo");
 
-        // Bring Data in the info box
+        // Bring Data in the info box..................
 
         // Rest Name
         $("#fetchInfo").append(
@@ -169,9 +173,18 @@ async function fetchPizzas(event) {
         $("#fetchInfo").append(
           data.restaurants[i].restaurant.name + " - Address: "
         );
-
+        // Rest Address
         $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
 
+        // Rest opening times
+        $("#fetchInfo").append(
+          "  Opening times : " + data.restaurants[i].restaurant.timings
+        );
+        // Rest rating
+        $("#fetchInfo").append(
+          " - Customer Rating : " +
+            data.restaurants[i].restaurant.user_rating.rating_text
+        );
         console.log(data);
       }
     });
@@ -215,8 +228,18 @@ async function fetchBurgers(event) {
         $("#fetchInfo").append(
           data.restaurants[i].restaurant.name + " - Address: "
         );
-
+        // Rest Address
         $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
+
+        // Rest opening times
+        $("#fetchInfo").append(
+          "  Opening times : " + data.restaurants[i].restaurant.timings
+        );
+        // Rest rating
+        $("#fetchInfo").append(
+          " - Customer Rating : " +
+            data.restaurants[i].restaurant.user_rating.rating_text
+        );
       }
     });
   }
@@ -257,9 +280,19 @@ async function fetchKebab(event) {
         $("#fetchInfo").append(
           data.restaurants[i].restaurant.name + " - Address: "
         );
-
+        // Rest Address
         $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
         console.log("kebabs");
+
+        // Rest opening times
+        $("#fetchInfo").append(
+          "  Opening times : " + data.restaurants[i].restaurant.timings
+        );
+        // Rest rating
+        $("#fetchInfo").append(
+          " - Customer Rating : " +
+            data.restaurants[i].restaurant.user_rating.rating_text
+        );
       }
     });
   }
@@ -300,27 +333,91 @@ async function fetchDesserts(event) {
         $("#fetchInfo").append(
           data.restaurants[i].restaurant.name + " - Address: "
         );
-
+        // Rest Address
         $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
         console.log("some desserts");
+
+        // Rest opening times
+        $("#fetchInfo").append(
+          "  Opening times : " + data.restaurants[i].restaurant.timings
+        );
+        // Rest rating
+        $("#fetchInfo").append(
+          " - Customer Rating : " +
+            data.restaurants[i].restaurant.user_rating.rating_text
+        );
       }
     });
   }
 }
 
-// function geo() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function (position) {
-//       console.log(position);
-//       $.get(
-//         "http://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-//           position.coords.latitude +
-//           "," +
-//           position.coords.longitude,
-//         function (data1) {
-//           console.log(data1);
-//         }
-//       );
-//     });
-//   }
-// }
+somethingdiffBtn.on("click", fetchSomething);
+async function fetchSomething(event) {
+  event.preventDefault();
+
+  // Grab geolocation, sort by dessert and sort by distance....
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+
+      const response = await fetch(
+        `https://developers.zomato.com/api/v2.1/search?q=&lat=${position.coords.latitude}&lon=${position.coords.longitude}&count=10&sort=real_distance`,
+
+        {
+          headers: { "user-key": "207a0c5b1b9e7e8ba746b09b4ecdbd80" },
+        }
+      );
+      const data = await response.json();
+      $("#fetchInfo").html("");
+      // Give me 10 bits of data
+      for (i = 0; i < 10; i++) {
+        // create it in a list
+        var listEl = $("<li>");
+        var listDetail = name.concat("");
+        listEl.addClass("list-group-item").text(listDetail);
+        listEl.appendTo("#fetchInfo");
+
+        // Bring Data in the info box
+        $("#fetchInfo").append(
+          data.restaurants[i].restaurant.name + " - Address: "
+        );
+        // Rest Address
+        $("#fetchInfo").append(data.restaurants[i].restaurant.location.address);
+        console.log("some desserts");
+
+        // Rest opening times
+        $("#fetchInfo").append(
+          "  Opening times : " + data.restaurants[i].restaurant.timings
+        );
+        // Rest rating
+        $("#fetchInfo").append(
+          " - Customer Rating : " +
+            data.restaurants[i].restaurant.user_rating.rating_text
+        );
+      }
+    });
+  }
+}
+
+// Get slideshow of food pics..
+
+let myFoodImg = 0;
+carousel();
+
+function carousel() {
+  let i;
+  let x = document.getElementsByClassName("mySlides");
+  // Loop through the pics from html class my slides..
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myFoodImg++;
+  if (myFoodImg > x.length) {
+    myFoodImg = 1;
+  }
+  x[myFoodImg - 1].style.display = "block";
+  // Change pics after 2 secs
+  setTimeout(carousel, 2000);
+}
