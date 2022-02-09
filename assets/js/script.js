@@ -6,7 +6,7 @@ let pizzaBtn = $("#pizza");
 let kebabBtn = $("#kebab");
 let dessertsBtn = $("#desserts");
 let somethingdiffBtn = $("#somethingdiff");
-let postcodeSearch = document.getElementById("postcodeSearch");
+let postcodeSearch = document.getElementById("#postcodeSearch");
 let info = $("fetchInfo");
 let boxed = $("#boxed");
 
@@ -97,6 +97,8 @@ async function fetchFood(event) {
   }
 }
 
+// POST CODE FUNCTION NOT WORKING - FURTHER DEVELOPMENT...
+
 function postcode(data1) {
   // let lat = data1.result[0].lat;
   // let lon = data1.result[0].lon;
@@ -109,7 +111,7 @@ function postcode(data1) {
       let latitude = data1.coords.latitude;
       let longitude = data1.coords.longitude;
 
-      var URL = `https://api.postcodes.io/postcodes?${postcodeSearch.value}&lon=${data1.coords.longitude}&lat=${data1.coords.latitude}`;
+      var URL = `https://api.postcodes.io/postcodes?q=${postcodeSearch}&lon=${data1.coords.longitude}&lat=${data1.coords.latitude}`;
       fetch(URL).then(function (response) {
         if (response.ok) {
           response.json().then(function (data) {
@@ -119,7 +121,8 @@ function postcode(data1) {
             console.log(data);
             console.log(URL);
             console.log(loc);
-            console.log(postcodeSearch.value);
+            console.log(postcodeSearch);
+            console.log(latitude);
           });
         }
       });
