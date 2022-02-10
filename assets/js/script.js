@@ -65,6 +65,10 @@ async function fetchFood(event) {
           " - Customer Rating : " +
             data.restaurants[i].restaurant.user_rating.rating_text
         );
+        // Get customer phone number
+        $("#fetchInfo").append(
+          " - Phone number  " + data.restaurants[i].restaurant.phone_numbers
+        );
 
         console.log(data);
         console.log("button clicked");
@@ -188,6 +192,11 @@ async function fetchPizzas(event) {
           " - Customer Rating : " +
             data.restaurants[i].restaurant.user_rating.rating_text
         );
+        // Get customer phone number
+        $("#fetchInfo").append(
+          " - Phone number  " + data.restaurants[i].restaurant.phone_numbers
+        );
+
         console.log(data);
       }
     });
@@ -243,6 +252,10 @@ async function fetchBurgers(event) {
           " - Customer Rating : " +
             data.restaurants[i].restaurant.user_rating.rating_text
         );
+        // Get customer phone number
+        $("#fetchInfo").append(
+          " - Phone number  " + data.restaurants[i].restaurant.phone_numbers
+        );
       }
     });
   }
@@ -295,6 +308,10 @@ async function fetchKebab(event) {
         $("#fetchInfo").append(
           " - Customer Rating : " +
             data.restaurants[i].restaurant.user_rating.rating_text
+        );
+        // Get customer phone number
+        $("#fetchInfo").append(
+          " - Phone number  " + data.restaurants[i].restaurant.phone_numbers
         );
       }
     });
@@ -349,6 +366,10 @@ async function fetchDesserts(event) {
           " - Customer Rating : " +
             data.restaurants[i].restaurant.user_rating.rating_text
         );
+        // Get customer phone number
+        $("#fetchInfo").append(
+          " - Phone number  " + data.restaurants[i].restaurant.phone_numbers
+        );
       }
     });
   }
@@ -398,6 +419,10 @@ async function fetchSomething(event) {
         $("#fetchInfo").append(
           " - Customer Rating : " +
             data.restaurants[i].restaurant.user_rating.rating_text
+        );
+        // Get customer phone number
+        $("#fetchInfo").append(
+          " - Phone number  " + data.restaurants[i].restaurant.phone_numbers
         );
       }
     });
