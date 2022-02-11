@@ -179,8 +179,9 @@ li a:hover {
 }
 
 #fetchInfo {
-  background-color: pink;
+  background-color: #485fc7;
   font-size: 15px;
+  color: white;
 }
 
 .list-group-item {
@@ -225,42 +226,8 @@ footer {
   text-align: center;
   margin-top: 20rem;
 }
-/* .wrapper {
-  overflow: hidden;
-}
-.sliding-background {
-  height: 960px;
-  width: 6000px;
-}
 
-.sliding-background {
-  background: url("/images/almond_chicken_curry_75843_16x9.jpeg");
-  height: 500px;
-  width: 5076px;
-}
-
-.sliding-background {
-  background: url("/images/American-Food.jpeg");
-  height: 560px;
-  width: 5076px;
-  animation: slide 60s linear infinite;
-}
-
-@keyframes slide {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(-2000px, 0, 0);
-  }
-} */
-
-/* body {
-  background: url("/images/almond_chicken_curry_75843_16x9.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
-
-.mySlides {
+#maphead {
+  text-align: center;
+  align-items: center;
 }
