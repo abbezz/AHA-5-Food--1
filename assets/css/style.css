@@ -125,7 +125,7 @@ li a:hover {
 }
 
 .footer-heading a {
-  color: black;
+  color: white;
   text-decoration: none;
   margin-bottom: 0.5rem;
 }
@@ -165,17 +165,17 @@ li a:hover {
 
 #contactusfooter {
   width: 15rem;
-  color: black;
+  color: white;
 }
 
 #aboutusfooter {
   width: 8rem;
-  color: black;
+  color: white;
 }
 
 #socialfooter {
   width: 10rem;
-  color: black;
+  color: white;
 }
 
 #fetchInfo {
@@ -217,6 +217,7 @@ li a:hover {
 
 footer {
   display: inline;
+  color: white;
 }
 
 /* Coming soon */
