@@ -232,3 +232,24 @@ footer {
   text-align: center;
   align-items: center;
 }
+
+#fave {
+  width: fit-content;
+}
+
+.list-group {
+  width: fit-content;
+  width: 5rem;
+  padding: 3px;
+  margin-top: 1 rem;
+  text-align: center;
+  margin-left: 2.5rem;
+}
+
+#favePlaces {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 2rem;
+}
