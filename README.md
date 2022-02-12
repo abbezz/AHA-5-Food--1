@@ -82,8 +82,6 @@ Parameter	Type	Description
 q	string	Data displayed from user input value
 count	Number	Filtered on 20 values
 
-Screenshots
-![image](https://user-images.githubusercontent.com/93604239/153688138-44798444-89e9-41e6-923b-4a7d8031a000.png)
 
 Deployment
 Link: https://hummanosh.github.io/AHA-5-Food-/
