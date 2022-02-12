@@ -37,24 +37,11 @@ count	Number	Filtered on 20 values
 Screenshots
 ![image](https://user-images.githubusercontent.com/93604239/153688138-44798444-89e9-41e6-923b-4a7d8031a000.png)
 
-Deployment
-Link: https://hummanosh.github.io/AHA-5-Food-/
+# Deployment
+Link: 
 
 
-Contributing
-We worked as a team of 4, equally dividing each task.
-
-## 🛠 Skills
-Javascript
-jQuery
-HTML
-CSS
-
- 
-
-
-
-Contributing
+# Contributing
 We worked as a team of 4, equally dividing each task.
 
 ## 🛠 Skills
