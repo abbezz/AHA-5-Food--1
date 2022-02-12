@@ -3,7 +3,7 @@
 
 # Getting Started
 
-Project Title - ACHA Foods!
+# Project Title - ACHA Foods!
 
 The purpose of our business is to list details of close-by restaurants/takeaways,  using the customers current location and google maps.
 The customer is able to search for any restaurant/take-away name and the application will pick up their current location and list nearby restaurants.  
