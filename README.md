@@ -11,14 +11,17 @@ The application includes information about the restaurant/take away and includes
 It also has an about us, contact us and social media page. 
 
 
-User Story
-AS A customer, I WANT to search for nearby restaurants/takeaways and access a map, SO THAT I can pick which restaurant to go to based on my current location.
+## How it Works
+ User Story AS A customer, I WANT to search for nearby restaurants/takeaways and access a map, SO THAT I can pick which restaurant to go to based on my current location.
 
-GIVEN I am a customer, WHEN I search for a specific restaurant name, THEN a list of restaurant/takeaway names, address, opening times, customer ratings and a phone number appear.
+ GIVEN I am a customer, WHEN I search for a specific restaurant name, THEN a list of restaurant/takeaway names, address, opening times, customer ratings and a phone number   appear.
+ 
+ WHEN I am not sure which restaurant to search for, I want to click pre-filtered buttons which give me a list of places to choose from.
 
-WHEN I am not sure which restaurant to search for, I want to click pre-filtered buttons which give me a list of places to choose from.
+ IF I want to go to the location, then I will have access to a map which will give me the fastest route to get there.
 
-IF I want to go to the location, then I will have access to a map which will give me the fastest route to get there.
+
+
 
 API Reference
 Get all items
@@ -36,6 +39,7 @@ Screenshots
 
 Deployment
 Link: https://hummanosh.github.io/AHA-5-Food-/
+
 
 Contributing
 We worked as a team of 4, equally dividing each task.
