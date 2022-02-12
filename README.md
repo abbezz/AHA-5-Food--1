@@ -71,17 +71,6 @@ I have never been so nervous before. I lost my self and my confidence in my pres
 Working with a team was a completely new experience for me. I was more comfortable working by myself so working in a group was a challenge and new experiences you got. Everyone has different ideas and imagine collecting all the ideas in one, you can then create incredible and good projects with your team. it was fun but at the same time it was tough. I hope I improve and make new progress in my career in the future.
 
 
-API Reference
-Get all items
-  GET /api/items
-Parameter	Type	Description
-user_key	string	207a0c5b1b9e7e8ba746b09b4ecdbd80
-Get item
-  GET /api/items/${id}
-Parameter	Type	Description
-q	string	Data displayed from user input value
-count	Number	Filtered on 20 values
-
 
 Deployment
 Link: https://hummanosh.github.io/AHA-5-Food-/
