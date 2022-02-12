@@ -71,22 +71,6 @@ I have never been so nervous before. I lost my self and my confidence in my pres
 Working with a team was a completely new experience for me. I was more comfortable working by myself so working in a group was a challenge and new experiences you got. Everyone has different ideas and imagine collecting all the ideas in one, you can then create incredible and good projects with your team. it was fun but at the same time it was tough. I hope I improve and make new progress in my career in the future.
 
 
-
-## 🚀 About Me
-I'm # Hi, I'm Abdollah Zamannoun! 👋
-
-
-# Getting Started
-
-# Project Title - ACHA Foods!
-
-The purpose of our business is to list details of close-by restaurants/takeaways,  using the customers current location and google maps.
-The customer is able to search for any restaurant/take-away name and the application will pick up their current location and list nearby restaurants.  
-The application includes information about the restaurant/take away and includes a map picking up current location and provide a route. 
-It also has an about us, contact us and social media page. 
-
-
-
 API Reference
 Get all items
   GET /api/items
@@ -118,8 +102,6 @@ CSS
 
 ## Other Common Github Profile Sections
 
-🧠 I'm currently learning... Full stack developer
-
 📫 How to reach me... abbezz@live.com 
 
 ## 🔗 Links
@@ -137,7 +119,9 @@ Working with a team was a completely new experience for me. I was more comfortab
 
 
 ## 🚀 About Me
-I'm studying full stack developer in University of Birmingham Bootcamp.
+
+🧠 I'm currently learning... Full stack developer in University of Birmingham Bootcamp 
+
 
 
 ![abbe about me](https://user-images.githubusercontent.com/94430401/153731226-2647f6fd-fb8c-438c-8c23-338d24a14550.png)
@@ -146,8 +130,6 @@ I'm studying full stack developer in University of Birmingham Bootcamp.
 
  
 
-
-![abbe about me](https://user-images.githubusercontent.com/94430401/153731226-2647f6fd-fb8c-438c-8c23-338d24a14550.png)
 
 
 
