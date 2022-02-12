@@ -40,6 +40,13 @@ Link: https://hummanosh.github.io/AHA-5-Food-/
 Contributing
 We worked as a team of 4, equally dividing each task.
 
+## 🛠 Skills
+Javascript
+jQuery
+HTML
+CSS
+
+
 
 ## Other Common Github Profile Sections
 
