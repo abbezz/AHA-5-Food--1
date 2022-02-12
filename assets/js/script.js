@@ -435,38 +435,38 @@ async function fetchSomething(event) {
 
 // LOCAL STORAGE
 
-function history() {
-  Storage.push(recNames.value);
-  localStorage.setItem("searchedlist", JSON.stringify(Storage));
-  listBuilder(recNames.value);
-  recNames.value = "";
-}
+// function history() {
+//   Storage.push(recNames.value);
+//   localStorage.setItem("searchedlist", JSON.stringify(Storage));
+//   listBuilder(recNames.value);
+//   recNames.value = "";
+// }
 
-let listBuilder = (text) => {
-  let favelist = document.createElement("li");
-  favelist.innerHTML = text + '<button onclick="deletebtn(this)"> x </button>';
-  searchedlist.append(favelist);
-};
+// let listBuilder = (text) => {
+//   let favelist = document.createElement("li");
+//   favelist.innerHTML = text + '<button onclick="deletebtn(this)"> x </button>';
+//   searchedlist.append(favelist);
+// };
 
-let getsearched = JSON.parse(localStorage.getItem("searchedlist"));
-getsearched.forEach((favelist) => {
-  listBuilder(favelist);
-});
+// let getsearched = JSON.parse(localStorage.getItem("searchedlist"));
+// getsearched.forEach((favelist) => {
+//   listBuilder(favelist);
+// });
 
-let deletebtn = (btn) => {
-  let btnEl = btn.parentNode;
-  let index = [...btnEl.parentElement.children].indexOf(btnEl);
-  Storage.splice(index, 10);
-  localStorage.setItem("searchedlist", JSON.stringify(Storage));
-  btnEl.remove();
-};
+// let deletebtn = (btn) => {
+//   let btnEl = btn.parentNode;
+//   let index = [...btnEl.parentElement.children].indexOf(btnEl);
+//   Storage.splice(index, 10);
+//   localStorage.setItem("searchedlist", JSON.stringify(Storage));
+//   btnEl.remove();
+// };
 
-$(document).on("click", "li", function () {
-  let pick = $(this).text();
-  fetchFood(pick);
-});
+// $(document).on("click", "li", function () {
+//   let pick = $(this).text();
+//   fetchFood(pick);
+// });
 
-history();
+// history();
 // Get slideshow of food pics..
 
 let myFoodImg = 0;
