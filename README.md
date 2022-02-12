@@ -58,3 +58,7 @@ CSS
 
 📫 How to reach me... abbezz@live.com 
 
+## 🚀 About Me
+I'm a leraning full stack developer in University of Birmingham Bootcamp.
+
+
