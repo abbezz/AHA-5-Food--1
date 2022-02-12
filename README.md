@@ -63,9 +63,18 @@ CSS
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdollah-zamannoun-943784226//)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/AZamannoun/)
 
+## Lessons Learned
+
+# What did you learn while building this project? What challenges did you face and how did you overcome them?
+I have never been so nervous before. I lost my self and my confidence in my presentation abut the project but I learned my mistakes and I will progress and be better speaker in the future so thats is my big issues to speak in front of people. I need to be more priperd and build up my communication skills and to trust my self.
+
+Working with a team was a completely new experience for me. I was more comfortable working by myself so working in a group was a challenge and new experiences you got. Everyone has different ideas and imagine collecting all the ideas in one, you can then create incredible and good projects with your team. it was fun but at the same time it was tough. I hope I improve and make new progress in my career in the future.
+
 
 
 ## 🚀 About Me
 I'm a leraning full stack developer in University of Birmingham Bootcamp.
+
+
 
 
