@@ -72,7 +72,7 @@ Workinng in a team was a completely new experience for me. I learnt that with te
 
 ## 🚀 About Me
 
-🧠 I'm currently learning... Full stack developer in University of Birmingham Bootcamp 
+🧠 I'm currently a student learning Full stack developer in University of Birmingham Bootcamp. 
 
 
 
