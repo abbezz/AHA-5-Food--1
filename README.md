@@ -64,9 +64,9 @@ CSS
 ## Lessons Learned
 
 # What did you learn while building this project? What challenges did you face and how did you overcome them?
-I have never been so nervous before. I lost my self and my confidence in my presentation abut the project but I learned my mistakes and I will progress and be better speaker in the future so thats is my big issues to speak in front of people. I need to be more priperd and build up my communication skills and to trust my self.
+Presenting this project was a huge challenge for me. I could not help my nervousness and lack of confidance while presenting my work in a room full of people. my shyness may have taken over the best of me and i may have lost a few words inbetween but i managed to try pull myself together with the help of my team which im grateful to and finish it off well. I intend to progress and work on myself more in terms of presentions and communication. i will be challenging myself in the futureto do better and be well confident in speaking infront of am audiance.
 
-Working with a team was a completely new experience for me. I was more comfortable working by myself so working in a group was a challenge and new experiences you got. Everyone has different ideas and imagine collecting all the ideas in one, you can then create incredible and good projects with your team. it was fun but at the same time it was tough. I hope I improve and make new progress in my career in the future.
+Workinng in a team was a completely new experience for me. I learnt that with team work every individual will have different ideas to present and share so for us collecting all the ideas in one we managed to create an incredible project. I learnt how to set up Goole Map API as this was my role in the project it toke great time but with loads of reasearches and reading and trying different ways as well as ideas with help of my team i managed to complete the task and sucseeded. I enjoyed this experiance and bringing this project together was great work. my goal is to improve my team work skills and make progress in my career in the future.
 
 
 
